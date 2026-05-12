@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - ЖК «Уютный»</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span>ЖК «Уютный»</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="flats.html">Квартиры</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="login-section">
+            <div class="container">
+                <div class="login-card">
+                    <h2>Регистрация</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label>ФИО</label>
+                            <input type="text" id="fullName" placeholder="Иван Иванов" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Номер квартиры</label>
+                            <input type="text" id="apartment" placeholder="например 42" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Телефон</label>
+                            <input type="tel" id="phone" placeholder="+7 (999) 123-45-67" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email" placeholder="ivan@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <input type="password" id="password" placeholder="пароль" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Код дома</label>
+                            <input type="text" id="housecode" placeholder="1234" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Зарегистрироваться</button>
+                    </form>
+                    <p class="demo-note">Уже зарегистрированы? <a href="login.html">Войти</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ЖК «Уютный»</h4>
+                    <p>Современный жилой комплекс</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="flats.html">Квартиры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Жильцам</h4>
+                    <ul>
+                        <li><a href="login.html">Личный кабинет</a></li>
+                        <li><a href="dashboard.html">Передать показания</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p>+7 (495) 123-45-67</p>
+                    <p> info@zhk-uyutny.ru</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2026 ЖК «Уютный». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="script.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Регистрация успешна! Теперь вы можете войти.');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в личный кабинет - ЖК «Уютный»</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span>ЖК «Уютный»</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="flats.html">Квартиры</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="login-section">
+            <div class="container">
+                <div class="login-card">
+                    <h2>Вход в личный кабинет</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label>Номер квартиры</label>
+                            <input type="text" id="apartment" placeholder="например 42" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <input type="password" id="password" placeholder="пароль" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Код дома</label>
+                            <input type="text" id="housecode" placeholder="1234" required>
+                        </div>
+                        <button type="submit" class="btn-primary"><i class="fas fa-sign-in-alt"></i> Войти</button>
+                    </form>
+                    <div class="login-links">
+                        <a href="register.html">Регистрация</a>
+                    </div>
+                    <p class="demo-note">Демо-доступ: квартира <strong>42</strong>, пароль <strong>123</strong>, код дома <strong>1234</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ЖК «Уютный»</h4>
+                    <p>Современный жилой комплекс</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="flats.html">Квартиры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Жильцам</h4>
+                    <ul>
+                        <li><a href="login.html">Личный кабинет</a></li>
+                        <li><a href="dashboard.html">Передать показания</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p>+7 (495) 123-45-67</p>
+                    <p> info@zhk-uyutny.ru</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2026 ЖК «Уютный». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+<script src="script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const apartment = document.getElementById('apartment').value;
+            const password = document.getElementById('password').value;
+            const housecode = document.getElementById('housecode').value;
+
+            if(apartment === '42' && password === '123' && housecode === '1234') {
+                localStorage.setItem('userLoggedIn', 'true');
+                localStorage.setItem('userApartment', apartment);
+                localStorage.setItem('userName', 'Иван Петров');
+                localStorage.setItem('userEmail', 'ivan@example.com');
+                localStorage.setItem('userPhone', '+7 (999) 123-45-67');
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Неверные данные! Используйте: квартира 42, пароль 123, код дома 1234');
+            }
+        });
+    </script>
+</body>
+</html>

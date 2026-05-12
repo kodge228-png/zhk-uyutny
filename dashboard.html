@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - ЖК «Уютный»</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span>ЖК «Уютный»</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="flats.html">Квартиры</a></li>
+                    <li><a href="dashboard.html" class="active">Личный кабинет</a></li>
+                    <li><a href="#" id="logoutBtn">Выйти</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <!-- Dashboard -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="sidebar">
+            <div class="user-profile-sidebar">
+                <div class="user-avatar"></div>
+                <h3 id="sidebarUserName">Иван Петров</h3>
+                <p>Квартира №<span id="sidebarApartment">42</span></p>
+                <span class="apartment-badge">Лицевой счёт: 123456</span>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active" data-tab="overview"><a href="#">Обзор</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Tab: Overview -->
+            <div id="tab-overview" class="tab-content active">
+                <div class="section-card">
+                    <div class="welcome-banner">
+                        <h3>Добро пожаловать, <span id="welcomeName">Иван</span>!</h3>
+                        <p>Спасибо, что выбираете ЖК «Уютный». Вот что произошло в вашем доме за последнее время:</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Баланс лицевого счёта</h4>
+                            <div class="stat-value" id="balanceValue">2 350 ₽</div>
+                            <small>Оплатите до 25 числа</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Долг (+пеня)</h4>
+                            <div class="stat-value" id="debtValue">0 ₽</div>
+                            <small>Пени: <span id="penaltyValue">0 ₽</span></small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Активных заявок</h4>
+                            <div class="stat-value" id="activeRequestsCount">3</div>
+                            <small>В работе у УК</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Непрочитанных уведомлений</h4>
+                            <div class="stat-value" id="unreadNotifications">2</div>
+                            <small>От управляющей компании</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2>Быстрые действия</h2>
+                        </div>
+                        <div class="quick-actions">
+                            <button onclick="quickAction('meters')" class="btn-primary btn-secondary-bg">Передать показания</button>
+                            <button onclick="quickAction('payments')" class="btn-primary">Оплатить</button>
+                            <button onclick="quickAction('requests')" class="btn-primary btn-info-bg">Новая заявка</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2>Последние показания</h2>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <thead>
+                                <tr><th>Дата</th><th>ХВС</th><th>ГВС</th><th>Эл-во</th><th>Отопление</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>15.01.2024</td>
+                                    <td>45.2 м³</td>
+                                    <td>32.1 м³</td>
+                                    <td>234 кВт·ч</td>
+                                    <td>1.23 Гкал</td>
+                                </tr>
+                                <tr>
+                                    <td>01.01.2024</td>
+                                    <td>42.1 м³</td>
+                                    <td>30.5 м³</td>
+                                    <td>220 кВт·ч</td>
+                                    <td>1.15 Гкал</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2>Последние платежи</h2>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <thead>
+                                <tr><th>Дата</th><th>Сумма</th><th>Способ</th><th>Статус</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10.01.2024</td>
+                                    <td>4 850 ₽</td>
+                                    <td>Банковская карта</td>
+                                    <td><span class="badge badge-success">Успешно</span></td>
+                                </tr>
+                                <tr>
+                                    <td>05.12.2023</td>
+                                    <td>4 720 ₽</td>
+                                    <td>Сбербанк Онлайн</td>
+                                    <td><span class="badge badge-success">Успешно</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if(confirm('Вы уверены, что хотите выйти?')) {
+                localStorage.removeItem('userLoggedIn');
+                window.location.href = 'index.html';
+            }
+        });
+
+        function quickAction(tabId) {
+            alert('Функция пока недоступна');
+        }
+    </script>
+</body>
+</html>
